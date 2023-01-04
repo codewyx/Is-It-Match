@@ -1,21 +1,24 @@
 import tkinter
 from tkinter import ttk
 from PIL import Image,ImageTk
-from ttkbootstrap import Style
 import function
 from tkinter import filedialog
 import pyperclip
 import tkinter.messagebox
 
-
-
+def buttonclick():
+    path_save = filedialog.asksaveasfilename(initialfile='information.log',filetypes=[("日志文件", ".log")]) 
+    path_save = path_save.replace("/", "\\\\")
+    f = open(path_save,'w',encoding='utf-8')
+    f.write(myinfo) 
+    f.close()
 def losev():
     root.deiconify()
     top1.destroy()
 
 
 def callback1():
-    tkinter.messagebox.showinfo(title='关于',message='V.1.0 MADE BY CODEWYX')
+    tkinter.messagebox.showinfo(title='关于',message='V.1.1.0\nMADE BY CODEWYX')
 
 def callback2(event=None):
     pyperclip.copy(myinfo)
@@ -35,9 +38,14 @@ def Overtk():
 
 
 def callback(event):
+    
         f_path = filedialog.askopenfilename()
+        if function.ifright(f_path)=="error":
+            return
         global top1
+        tkinter.messagebox.showinfo(title='提示',message='正在获取中，请稍后！')
         top1=tkinter.Toplevel(root) 
+        top1.iconify()
         top1.title('Is It Match? 检查结果') 
         top1.iconbitmap('resource/logo.ico')
         top1.attributes('-alpha', 0.95)
@@ -52,19 +60,23 @@ def callback(event):
         label1 = ttk.Label(top1, image=img1)
         label1.pack()        
         root.withdraw()
-        top1.deiconify()
         file_md5=function.file_md5(f_path)
         file_sha1=function.file_sha1(f_path)
         file_sha256=function.file_sha256(f_path)
         file_sha512=function.file_sha512(f_path)
         global selectableMsg   
         global myinfo  
-        selectableMsg = tkinter.Text(top1,background="#F0F4F4",width=48, height=6,font=("微软雅黑", 14))
-        myinfo = "MD5:"+file_md5+"\nSHA1:"+file_sha1+"\nSHA256:"+file_sha256   
+        selectableMsg = tkinter.Text(top1,background="#F0F4F4",width=58, height=8,font=("微软雅黑", 11))
+        myinfo = "文件路径："+f_path+"\nMD5:"+file_md5+"\nSHA1:"+file_sha1+"\nSHA256:"+file_sha256+"\nSHA512:"+file_sha512
         selectableMsg.insert(1.0,myinfo)
         selectableMsg.configure(state='disabled')
         selectableMsg.place(x=30, y=100)
         selectableMsg.bind("<Button-3>", popup)   
+        s = ttk.Style()
+        s.configure('my.TButton', font=("微软雅黑",10))
+        button1 = ttk.Button(top1,text='保存结果',style='my.TButton',command=buttonclick)
+        button1.place(x=250, y=270)
+        top1.deiconify()
 root = tkinter.Tk()
 root.title('Is It Match? 主页')
 root.geometry('600x360')
@@ -79,7 +91,6 @@ img0 = ImageTk.PhotoImage(photo)
 label = ttk.Label(root, image=img0)
 label.bind("<Button-1>", callback)
 label.pack()
-style = Style(theme='default')
 menubar = tkinter.Menu(root)
 menubar.add_cascade(label='关于', command=callback1)
 root['menu'] = menubar

@@ -1,9 +1,12 @@
 
-import os
 import hashlib
-import tkinter
-
+import os
 #以下代码属于二开
+
+def ifright(file_path: str) -> str:
+    if not os.path.isfile(file_path):
+        return 'error'
+
 
 def file_hash(file_path: str, hash_method) -> str:
     h = hash_method()
