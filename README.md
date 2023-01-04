@@ -1,5 +1,5 @@
 
-# Is-It-Match? 轻松校验文件正确性 (Easy verification of file correctness)
+# Is-It-Match? 轻松校验文件正确性<br> Easy verification of file correctness
 ![<center></center>](https://img.shields.io/github/stars/codewyx/Is-It-Match.svg?style=social)
 
 - 点击此处下载最新版！(Click here to download the latest version!)
