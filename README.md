@@ -7,3 +7,6 @@ _**https://github.com/codewyx/Is-It-Match/releases**_
       - 被授权人可根据程序的需要修改授权条款为适当的内容。
   - 2.被授权人义务<br>
       - 在软件和软件的所有副本中都必须包含版权声明和许可声明。<br>
+- 软件示例
+    -![image](https://user-images.githubusercontent.com/66934040/210501024-ba6c25d0-08b8-4c12-a6a9-bdc2fff2b922.png)
+
