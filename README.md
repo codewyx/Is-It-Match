@@ -1,1 +1,1 @@
-<a href="https://github.com/codewyx/Is-It-Match/releases"><img src="http://qiniu.daidaixiang.xyz/image-20201110155239356.png](https://user-images.githubusercontent.com/66934040/210555964-36e7a1e4-ee5b-4cf0-b966-21ace69aa738.png"></a>
+<a href="https://github.com/codewyx/Is-It-Match/releases"><img src="https://github.com/codewyx/Is-It-Match/blob/main/README.png?raw=true"></a>
