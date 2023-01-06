@@ -1,7 +1,7 @@
+#以下代码属于二次开发
 
 import hashlib
 import os
-#以下代码属于二开
 
 def ifright(file_path: str) -> str:
     if not os.path.isfile(file_path):
